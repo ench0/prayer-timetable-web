@@ -13,7 +13,6 @@ import Overlay from './components/Overlay'
 import Clock from './components/Clock'
 import Prayers from './components/Prayers'
 import Countdown from './components/Countdown'
-import Message from './components/Message'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
@@ -50,6 +49,7 @@ class TimetableApp extends Component {
       log: false,
       refreshed: moment().format('HH:mm')
     }
+    this.getData = this.getData.bind(this)
   }
 
   /**********************************************************************
@@ -191,6 +191,11 @@ class TimetableApp extends Component {
     }
   }
 
+  getData(data) {
+    this.setState({ jamaahShow: data })
+    console.log('received data:', data)
+  }
+
   /**********************************************************************
   RENDERING
   **********************************************************************/
@@ -207,11 +212,10 @@ class TimetableApp extends Component {
       <div className="TimetableApp">
         {/* <Overlay settings={this.state.settings} day={this.state.day} overlayTitle={this.state.overlayTitle} overlayActive={this.state.overlayActive} /> */}
         {overlay}
-        <Header settings={this.state.settings} />
+        <Header settings={this.state.settings} jamaahShow={this.state.jamaahShow} sendData={this.getData} />
         <Clock day={this.state.day} />
         <Prayers prayers={this.state.prayers} jamaahShow={this.state.jamaahShow} join={this.state.join} />
         <Countdown prayers={this.state.prayers} />
-        <Message settings={this.state.settings} />
         <Footer
           settings={this.state.settings}
           day={this.state.day}

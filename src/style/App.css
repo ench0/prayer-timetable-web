@@ -11,9 +11,10 @@ html, body, #root {
 body {
     font-family: Roboto, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     /* font-size: 48px; */
-    background: url('./img/bg.png') rgb(151, 174, 157);
+    /* background: url('./img/bg.png') rgb(151, 174, 157); */
+    background: radial-gradient(rgb(151, 174, 157), rgb(86, 103, 90), rgb(53, 64, 55));
     background-size: 100%;
-    font-size: 48px;
+    font-size: 16px;
 }
 
 h3 {
@@ -64,7 +65,7 @@ h3 {
     flex-direction: column;
     justify-content: flex-end;
     width:100%;
-    flex: .3;
+    flex: .2;
 }
 
 .Timetable {
@@ -73,7 +74,7 @@ h3 {
     flex-direction: column;
     justify-content: center;
     width:100%;
-    flex:.425;
+    flex:.55;
 }
 
 .Countdown {
@@ -81,29 +82,13 @@ h3 {
     display: flex;
     flex-direction: column;
     /* justify-content: space-around; */
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    flex: .075;
+    flex: .15;
+    color: #fff;
 }
 
-.Message {
-    /* background-color:lightcoral; */
-    font-family: Changa, 'Times New Roman', Times, serif;
-    background-color: rgba(255,255,255,.25);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width:100%;
-    flex: .15;
-    align-items: center;
-    text-align: center;
-}
-.Message div {
-    font-size: 65%;
-    font-weight: 300;
-    padding: 0 10px;
-}
 .Header, .Footer {
     background-color: rgba(50,50,50,.75);
     font-size: 50%;
@@ -113,37 +98,12 @@ h3 {
     flex-direction: row;
     justify-content: space-between;
     width:100%;
-    flex: .025;
+    flex: .05;
     align-items: center;
 }
-.mContainer {
-    width: 90%;
-    height: 75%;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 0 25px;
-    font-size: 75%;
-    white-space: pre-wrap;
+.Header div {
+    flex: .33;
 }
-.marquee {
-    top: 5em;
-    position: relative;
-    box-sizing: border-box;
-    animation: marquee 50s linear infinite;
-}
-.marquee:hover {
-    animation-play-state: paused;
-}
-/* Make it move! */
-@keyframes marquee {
-    0%   { top: 450% }
-    100% { top: -450% }
-}
-
-
-
-
-
 .Header div, .Footer div {
     padding: 0 10px;
     /* text-align: center; */
@@ -213,15 +173,19 @@ h3 {
 
   .logo {
       height: 2em;
-      padding-bottom: 1em;
       /* opacity: .7; */
   }
   .wifiOff {
-      height: 25px;
+      height: 2em;
     }
   .wifiOn {
-    height: 25px;
+    height: 2em;
 }
+
+.switchOff, .switchOn {
+    height: 2em;
+    padding-right: .5em;
+  }
 
 .left {
     text-align: left;

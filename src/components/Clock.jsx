@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 // import './App.css';
 import moment from 'moment-hijri'
 // import settings from '../settings.json'
-import mainLogo from '../style/img/logo.svg'
 
 class Clock extends Component {
   constructor(props) {
@@ -52,7 +51,6 @@ class Clock extends Component {
 
     return (
       <div className="Clock">
-        <img src={mainLogo} className="logo" alt="logo" />
         <div className="timeRow">
           {/* {this.state.date.toLocaleTimeString()} */}
           {moment().format('H:mm:ss')}
