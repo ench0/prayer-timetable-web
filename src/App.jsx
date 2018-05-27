@@ -9,7 +9,6 @@ import { prayersCalc, dayCalc } from 'prayer-timetable-lib'
 import './style/normalize.css'
 import './style/App.css'
 
-import Overlay from './components/Overlay'
 import Clock from './components/Clock'
 import Prayers from './components/Prayers'
 import Countdown from './components/Countdown'
@@ -39,8 +38,6 @@ class TimetableApp extends Component {
       tomorrow: 0,
       name: '',
       jamaahShow: true,
-      overlayActive: false,
-      overlayTitle: ' ... ',
       jummuahTime: moment({ hour: '13', minute: '10' }).day(5),
       taraweehTime: moment({ hour: '23', minute: '00' }), // .iMonth(8),
       refresh: this.props.refresh || 60,
@@ -134,43 +131,7 @@ class TimetableApp extends Component {
       taraweehTime: moment({ hour: '23', minute: '00' }) // .iMonth(8),
     })
 
-    if (moment().isBetween(this.state.jummuahTime, this.state.jummuahTime.clone().add(1, 'hour'))) {
-      this.setState({
-        overlayActive: true,
-        overlayTitle: 'Jummuah Prayer'
-      })
-    } else if (
-      moment().format('iM') === '9' &&
-      //   this.state.prayers.current.name === 'asr' &&
-      moment().isBetween(this.state.taraweehTime, this.state.taraweehTime.clone().add(2, 'hour'))
-    ) {
-      this.setState({
-        overlayActive: true,
-        overlayTitle: 'Taraweeh Prayer'
-      })
-    } else if (
-      moment().format('iM') === '9' &&
-      //   this.state.prayers.current.name === 'asr' &&
-      moment().isBetween(
-        moment().startOf('day'),
-        moment()
-          .startOf('day')
-          .clone()
-          .add(1, 'hour')
-      )
-    ) {
-      this.setState({
-        overlayActive: true,
-        overlayTitle: 'Taraweeh Prayer'
-      })
-    } else {
-      this.setState({
-        overlayActive: false,
-        overlayTitle: ' ... '
-      })
-    }
     // console.log(this.state.prayers.newtomorrow)
-    console.log(this.state.taraweehTime.format('H:mm D'))
   }
 
   async update() {
@@ -206,18 +167,8 @@ class TimetableApp extends Component {
   RENDERING
   **********************************************************************/
   render() {
-    // console.log(this.state.overlayActive)
-    // console.log(this.state.day)
-
-    let overlay
-    if (this.state.overlayActive) {
-      overlay = <Overlay settings={this.state.settings} day={this.state.day} overlayTitle={this.state.overlayTitle} />
-    } else overlay = ''
-
     return (
       <div className="TimetableApp">
-        {/* <Overlay settings={this.state.settings} day={this.state.day} overlayTitle={this.state.overlayTitle} overlayActive={this.state.overlayActive} /> */}
-        {overlay}
         <Header settings={this.state.settings} jamaahShow={this.state.jamaahShow} sendData={this.getData} />
         <Clock day={this.state.day} />
         <Prayers prayers={this.state.prayers} jamaahShow={this.state.jamaahShow} join={this.state.join} />
