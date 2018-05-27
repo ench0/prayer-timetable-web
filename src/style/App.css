@@ -86,7 +86,7 @@ h3 {
     align-items: center;
     width: 100%;
     flex: .15;
-    color: #fff;
+    color: rgba(255,255,255,.75);
 }
 
 .Header, .Footer {
@@ -102,15 +102,19 @@ h3 {
     align-items: center;
 }
 .Header div {
-    flex: .33;
+    flex: .6;
+}
+.Header div:first-child {
+    flex: .2;
+}
+.Header div:last-child {
+    flex: .2;
 }
 .Header div, .Footer div {
     padding: 0 10px;
     /* text-align: center; */
 }
-.Footer div{
-    /* width: 33%; */
-}
+
 /* CLOCK COMPONENT */
 .timeRow {
     color: rgba(255,255,255,.75);
