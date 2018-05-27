@@ -1,0 +1,234 @@
+@import './fonts/roboto.css';
+@import './fonts/changa.css';
+
+html, body, #root {
+    height:100%;
+    margin:0;
+    width: 100%;
+    font-size: 100%;
+}
+
+body {
+    font-family: Roboto, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* font-size: 48px; */
+    background: url('./img/bg.png') rgb(151, 174, 157);
+    background-size: 100%;
+    font-size: 48px;
+}
+
+h3 {
+    padding: 0;
+    margin: 0;
+    font-size:90%;
+
+}
+
+
+.TimetableApp {
+    height:100%;
+    display:flex;
+    display: -webkit-flex;
+    flex-direction: column;
+
+    align-content: stretch;
+}
+.Overlay {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.85);
+    height: 100%;
+    width: 100%;
+    /* opacity: 1;
+    transition: background 15s, display 15s, z-index 15s, opacity 15s; */
+}
+/* .overlayActive {
+    background: rgba(0,0,0,.85);
+    opacity: 1;
+} */
+.Overlay div, .Overlay h1 {
+    color: rgba(255,255,255,.75);
+}
+
+
+/* .2+.45+.075+.225+2*.025 */
+/* COMPONENTS */
+.Clock {
+    /* background-color:lightgreen; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width:100%;
+    flex: .3;
+}
+
+.Timetable {
+    /* background-color:lightblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+    flex:.425;
+}
+
+.Countdown {
+    /* background-color:lightgreen; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    flex: .075;
+}
+
+.Message {
+    /* background-color:lightcoral; */
+    font-family: Changa, 'Times New Roman', Times, serif;
+    background-color: rgba(255,255,255,.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width:100%;
+    flex: .15;
+    align-items: center;
+    text-align: center;
+}
+.Message div {
+    font-size: 65%;
+    font-weight: 300;
+    padding: 0 10px;
+}
+.Header, .Footer {
+    background-color: rgba(50,50,50,.75);
+    font-size: 50%;
+    text-transform: uppercase;
+    color: #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:100%;
+    flex: .025;
+    align-items: center;
+}
+.mContainer {
+    width: 90%;
+    height: 75%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 25px;
+    font-size: 75%;
+    white-space: pre-wrap;
+}
+.marquee {
+    top: 5em;
+    position: relative;
+    box-sizing: border-box;
+    animation: marquee 50s linear infinite;
+}
+.marquee:hover {
+    animation-play-state: paused;
+}
+/* Make it move! */
+@keyframes marquee {
+    0%   { top: 450% }
+    100% { top: -450% }
+}
+
+
+
+
+
+.Header div, .Footer div {
+    padding: 0 10px;
+    /* text-align: center; */
+}
+.Footer div{
+    /* width: 33%; */
+}
+/* CLOCK COMPONENT */
+.timeRow {
+    color: rgba(255,255,255,.75);
+    text-shadow: 0 0 10px rgba(0,0,0,.75);
+    display: flex;
+    /* flex:.7; */
+    font-size: 240%;
+    align-items: center;
+    flex-direction: column;
+}
+.dateRow {
+    color: rgba(255,255,255,.75);
+    text-shadow: 0 0 10px rgba(0,0,0,.5);
+    display: flex;
+    font-size: 75%;
+    padding: 1em 0;
+    /* flex:.3; */
+    flex-direction: column;
+    align-items: center
+}
+
+
+
+/* TIMETABLE COMPONENT */
+.prayerHeader {
+    /* background-color: rgba(204,102,51,.75); */
+    display: flex;
+    margin: .5em 1em;
+    padding: .25em;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.prayerRow {
+    background-color: rgba(255,255,255,.25);
+    display: flex;
+    margin: .35em;
+    padding: .45em 1em;
+    flex-direction: row;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+.prayerRow div, .prayerHeader div {
+    width: 33%;
+}
+.prayerName {
+    text-align: left;
+}
+.adhanTime {
+    text-align: center;
+}
+.iqamahTime {
+    text-align: right;
+}
+.next {
+    background-color: rgba(255,255,255,.5)
+}
+
+
+
+
+  .logo {
+      height: 2em;
+      padding-bottom: 1em;
+      /* opacity: .7; */
+  }
+  .wifiOff {
+      height: 25px;
+    }
+  .wifiOn {
+    height: 25px;
+}
+
+.left {
+    text-align: left;
+}
+.center {
+    text-align: center;
+}
+.right {
+    text-align: right;
+}
