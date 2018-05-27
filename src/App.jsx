@@ -67,14 +67,19 @@ class TimetableApp extends Component {
 
     document.title = 'ICCI Timetable'
     try {
-      if ((await localStorage.getItem('settings')) !== 'undefined') {
+      if ((await localStorage.getItem('settings')) !== null) {
         var newsettings = await JSON.parse(localStorage.getItem('settings'))
         await this.setState({ settings: newsettings })
       }
-      if ((await localStorage.getItem('timetable')) !== 'undefined') {
+      if ((await localStorage.getItem('timetable')) !== null) {
         var newtimetable = await JSON.parse(localStorage.getItem('timetable'))
         await this.setState({ timetable: newtimetable })
       }
+      if ((await localStorage.getItem('jamaahShow')) !== null) {
+        var newjamaahShow = await JSON.parse(localStorage.getItem('jamaahShow'))
+        await this.setState({ jamaahShow: newjamaahShow })
+        console.log('cookie set', await localStorage.getItem('jamaahShow'))
+      } else console.log('not set')
       // await this.setState({ settings: newsettings, timetable: newtimetable, join: newsettings.join })
     } catch (error) {
       console.log(error)
@@ -191,8 +196,9 @@ class TimetableApp extends Component {
     }
   }
 
-  getData(data) {
+  async getData(data) {
     this.setState({ jamaahShow: data })
+    await localStorage.setItem('jamaahShow', data)
     console.log('received data:', data)
   }
 
