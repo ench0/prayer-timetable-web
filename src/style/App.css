@@ -180,10 +180,10 @@ h3 {
       /* opacity: .7; */
   }
   .wifiOff {
-      height: 2em;
+      height: 1em;
     }
   .wifiOn {
-    height: 2em;
+    height: 1em;
 }
 
 .switchOff, .switchOn {
